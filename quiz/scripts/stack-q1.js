@@ -1,14 +1,23 @@
 class PStack {
   #id;
+   #_persons;
   constructor() {
     this.#id = 1;
-    this._persons = [];
+    this.#_persons = [];
   }
 
   showId() {
     return this.#id;
   }
+  
+    get persons() {
+    return this.#_persons;
+  }
 
+  set persons(value) {
+    // Assuming you want to replace the entire array with a new one
+    this.#_persons = value;
+  }
 }
 
 class PStackImpl extends PStack {
@@ -17,11 +26,11 @@ class PStackImpl extends PStack {
   }
 
   push(p) {
-    return this._persons.push(p)
+    return this.persons.push(p)
   }
 
   pop() {
-    return this._persons.pop().age
+    return this.persons.pop().age
   }
 }
 
